@@ -13,3 +13,6 @@
 - [ ] User can check overtime
 - [ ]  User can check schedule
 - [ ] User can download pa￼ ￼ yroll
+
+## Nota:
+express-validator ts ya lo traae por defecto
