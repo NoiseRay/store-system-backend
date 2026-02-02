@@ -1,0 +1,15 @@
+# ADMIN PANEL Requerimientos
+- [ ] Admin Actions
+- [ ]  Admin can register
+- [ ]  Admin can register employees
+- [ ] Admin can modify permissions
+- [ ]  User/Admin can login
+- [ ] Admin can update employees' personal data
+- [ ]  User/Admin can change their password
+- [ ] Admin can register days off
+- [ ] User (Employee) Actions
+- [ ]  User can access their profile
+- [ ]  User can check available days off
+- [ ] User can check overtime
+- [ ]  User can check schedule
+- [ ] User can download pa￼ ￼ yroll
