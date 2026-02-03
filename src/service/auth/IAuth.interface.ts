@@ -4,7 +4,7 @@ interface ILoginPost{
 }
 
 interface IAuthService {
- validateInfoUser(data:ILoginPost):Promise<string>;
+ validateInfoUser(data:ILoginPost):Promise<void>;
 }
 
 export{

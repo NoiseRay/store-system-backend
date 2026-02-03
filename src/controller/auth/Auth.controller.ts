@@ -14,9 +14,9 @@ export class AuthController{
       });
     } catch (error: unknown) {
       //manejas tus errores personalizado
-      if (error instanceof Error && error.name == "Error 404") {
-        res.status(404).json({
-          status: 404,
+      if (error instanceof Error && error.name == "Error 401") {
+        res.status(401).json({
+          status: 401,
           name: error.name,
           msg: error.message,
         });
