@@ -3,12 +3,6 @@ import { IAuthService, ILoginPost } from './IAuth.interface';
 //Trata de que cada accion distinta se implemente en metodos separados
 export class AuthService implements IAuthService{
     constructor(){}
-    //Este metodo es de ejemplo. Puedes quitarlo o modificarlo.
-    // public async greeting():Promise<string>{
-    //     const accion = 'Hola mundo';
-    //     return accion;
-    // }
-
 
     //->Aqui aun faltaria generar la interface de respuesta Promise<any> para que no sea any. Ya que se necesitaria validar 
     // que datos se van a devolver del usuario si es que el login se realiza correctamante.                                                     

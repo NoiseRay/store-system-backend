@@ -9,7 +9,7 @@ const authService = new AuthService();
 const authController = new AuthController( authService );
 
 //Generamos las api's
-// router.get('/', auth.getAction)
+
 router.post('/login',[
 check('email', 'Agregue un email valido').isEmail(), //Middleware de validator
 check('password', 'El password es de minimo 7 caracteres').isLength({ min: 7}),
