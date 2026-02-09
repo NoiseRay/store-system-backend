@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function dev {
-    sudo docker compose -f docker-compose.dev.yml down -v
+    sudo docker compose -f docker-compose.dev.yml down
     sudo docker compose -f docker-compose.dev.yml up --build
 }
 
