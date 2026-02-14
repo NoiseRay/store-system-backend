@@ -48,7 +48,4 @@ export class Result<T, E> {
         }
         throw new Error("Invalid Result state");
     }
-    public getData(){
-        return this.data
-    }
 }
