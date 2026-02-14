@@ -22,6 +22,5 @@ export class AuthController {
             },
         );
     };
-
     public registerPost = async (req: Request, res: Response) => {};
 }
