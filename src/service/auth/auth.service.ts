@@ -116,7 +116,6 @@ export class AuthService implements IAuthService {
 
         return Result.ok<string, Error>("Usuario validado correctamente");
     }
-
     /**
      * Creates a new employee by atomically inserting both User and Employee records.
      *
