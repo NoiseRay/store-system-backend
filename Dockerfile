@@ -3,6 +3,9 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
+# Install build dependencies for native modules
+RUN apk add --no-cache python3 make g++
+
 RUN corepack enable
 
 COPY package.json .
@@ -20,6 +23,9 @@ FROM node:22-alpine AS development
 
 WORKDIR /app
 
+# Install build dependencies for native modules
+RUN apk add --no-cache python3 make g++
+
 RUN corepack enable
 
 ENV NODE_ENV=development
@@ -35,6 +41,9 @@ EXPOSE 3000
 
 # estapa de producción
 FROM node:22-alpine AS production
+# Install build dependencies for native modules
+RUN apk add --no-cache python3 make g++
+
 
 WORKDIR /app
 
