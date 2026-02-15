@@ -1,10 +1,7 @@
 # estapa de compilado
-FROM node:22-alpine AS build
+FROM node:22 AS build
 
 WORKDIR /app
-
-# Install build dependencies for native modules
-RUN apk add --no-cache python3 make g++
 
 RUN corepack enable
 
@@ -19,12 +16,9 @@ RUN pnpm run db:generate
 RUN pnpm build
 
 # estapa de desarrollo
-FROM node:22-alpine AS development
+FROM node:22 AS development
 
 WORKDIR /app
-
-# Install build dependencies for native modules
-RUN apk add --no-cache python3 make g++
 
 RUN corepack enable
 
@@ -40,10 +34,7 @@ EXPOSE 3000
 
 
 # estapa de producción
-FROM node:22-alpine AS production
-# Install build dependencies for native modules
-RUN apk add --no-cache python3 make g++
-
+FROM node:22 AS production
 
 WORKDIR /app
 
