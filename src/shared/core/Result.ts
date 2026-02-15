@@ -1,6 +1,6 @@
 export class Result<T, E> {
-    private data?: T;
-    private error?: E;
+    public data?: T;
+    public error?: E;
     private isSuccess: boolean;
 
     private constructor(isSuccess: boolean, data?: T, error?: E) {
@@ -17,35 +17,40 @@ export class Result<T, E> {
         return new Result<T, E>(false, undefined, error);
     }
 
-    public isSuccessful(): boolean {
+    public isOk(): this is Result<T, never> {
         return this.isSuccess;
     }
 
-    public getData(): T{
-        //  Se que en alguna parte puse que no deberiamos de tirar errores (throws) a cada rato
-        //  pero en este caso es necesario para evitar que se intente acceder a los datos de un resultado fallido
-        //  como tal es un error de programacion no un error de negocio
-        //  lo cual indicaria un error de logica en el codigo que esta usando el Result.
-        if (!this.isSuccess || this.data === undefined) {
-            throw new Error("Cannot get data from a failed Result");
-        }
-        return this.data;
+    public isErr(): this is Result<never, E> {
+        return !this.isSuccess;
     }
 
-    public getError(): E {
-        if (this.isSuccess || this.error === undefined) {
-            throw new Error("Cannot get error from a successful Result");
+    public unwrap(): T {
+        if (!this.isOk()) {
+            throw new Error("Cannot unwrap a failed Result");
         }
-        return this.error;
+        return this.data!;
     }
 
+    public unwrapErr(): E {
+        if (!this.isErr()) {
+            throw new Error("Cannot unwrap error from a successful Result");
+        }
+        return this.error!;
+    }
+
+    public getDataOr(defaultValue: T): T {
+        if (this.isOk()) {
+            return this.data!;
+        }
+        return defaultValue;
+    }
 
     public fold<U>(onSuccess: (data: T) => U, onFailure: (error: E) => U): U {
-        if (this.isSuccess && this.data !== undefined) {
-            return onSuccess(this.data);
-        } else if (!this.isSuccess && this.error !== undefined) {
-            return onFailure(this.error);
+        if (this.isOk()) {
+            return onSuccess(this.data!);
+        } else {
+            return onFailure(this.error!);
         }
-        throw new Error("Invalid Result state");
     }
 }
