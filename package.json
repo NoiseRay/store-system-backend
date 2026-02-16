@@ -5,7 +5,7 @@
     "type": "commonjs",
     "main": "index.js",
     "scripts": {
-        "dev": "tsc && nodemon dist/src/app.js",
+        "dev": "nodemon",
         "build": "tsc",
         "start": "node dist/src/app.js",
         "db:generate": "pnpm exec prisma generate",
