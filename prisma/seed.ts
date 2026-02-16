@@ -1,7 +1,7 @@
 import { join } from "path";
 import { config } from "dotenv";
-import { prisma } from "./src/index";
-
+// import { prisma } from "./src/index";
+import { prisma } from "../src/config/prisma";
 async function main() {
     if (process.env.NODE_ENV === "production") {
         console.error(
