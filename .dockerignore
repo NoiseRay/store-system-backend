@@ -15,3 +15,6 @@ dev.db
 dev.db-shm
 dev.db-wal
 dist/*
+.pnpm-store/
+pnpm-store/
+data/
